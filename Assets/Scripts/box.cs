@@ -9,7 +9,9 @@ public class box : MonoBehaviour
     public int value;
     public int[] values = new int[] { 2, 4, 8 };
 
+    public GameObject m_Shodow;
     public Vector3 Cubeposition;
+
     /*private void Update()
     { 
         if (transform.position.y < -2)
@@ -28,7 +30,7 @@ public class box : MonoBehaviour
         {
             value *= 2;
             changetext();
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 300,ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 300, ForceMode.Force);
             Destroy(collision.gameObject);
         }
     }
@@ -36,21 +38,9 @@ public class box : MonoBehaviour
     {
         T_text = GetComponentsInChildren<TextMeshPro>();
         gameObject.name = value.ToString();
-        //  P_text = GetComponentsInChildren<TextMeshPro>();
         for (int i = 0; i < T_text.Length; i++)
         {
-            /*string Pstr = P_text[i].text;
-            int pint = int.Parse(Pstr); // player text values*/
-
             T_text[i].text = value.ToString();
-            /*int Cint = int.Parse(Cstr); //cube text value*/
-            /*if (Cint == pint)
-            {
-                int Mul = Cint * pint;
-                T_text[i].text = Mul.ToString();
-                Destroy(gameObject);
-            }*/
-
         }
     }
 }

@@ -37,15 +37,15 @@ public class GameManager : MonoBehaviour
             var po = Input.mousePosition.x - m_PreviousPosition.x;
             var canpos = cube.transform.localPosition;
             var df = po / MoveSensitivity;
-            canpos.x = Mathf.Clamp(df, -3, 3);
+            canpos.x = Mathf.Clamp(df, -3, 3.45f);
             cube.transform.localPosition = canpos;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             m_PreviousPosition = Vector3.zero;
             cube.GetComponent<Rigidbody>().AddForce(cube.transform.forward * 1000);
+            cube.GetComponent<box>().m_Shodow.SetActive(false);
             CubeAvailable = false;
         }
-        /*}*/
     }
 }
