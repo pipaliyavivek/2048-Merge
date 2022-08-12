@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject cube;
 
     public GameObject player;
-
     //private Vector3 localTargetPosition;
     Vector3 m_PreviousPosition;
     float m_dummyfloat;
     float m_MinimumDrag;
     float MoveSensitivity = 20f;
-
     private bool isfirstimel;
+
+    public List<Color> m_CubesColor = new List<Color>();
     private void Awake()
     {
         //localTargetPosition = transform.position;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             m_PreviousPosition = Vector3.zero;
             cube.GetComponent<Rigidbody>().AddForce(cube.transform.forward * 1000);
-            cube.GetComponent<box>().m_Shodow.SetActive(false);
+            cube.GetComponent<LineRenderer>().enabled = false;
             CubeAvailable = false;
         }
     }

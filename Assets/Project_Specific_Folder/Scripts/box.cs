@@ -11,6 +11,7 @@ public class box : MonoBehaviour
 
     public GameObject m_Shodow;
     public Vector3 Cubeposition;
+    public MeshRenderer m_Mesh;
 
     /*private void Update()
     { 
@@ -21,6 +22,7 @@ public class box : MonoBehaviour
     }*/
     void Awake()
     {
+        m_Mesh = GetComponent<MeshRenderer>();
         value = values[Random.Range(0, values.Length - 1)];
         changetext();
     }
@@ -41,6 +43,30 @@ public class box : MonoBehaviour
         for (int i = 0; i < T_text.Length; i++)
         {
             T_text[i].text = value.ToString();
+        }
+        switch (value)
+        {
+            case 2:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[0];
+                break;
+            case 4:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[1];
+                break;
+            case 8:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[2];
+                break; 
+            case 16:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[3];
+                break;
+            case 32:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[4];
+                break;
+            case 64:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[5];
+                break;
+            case 128:
+                m_Mesh.material.color = GameManager.instance.m_CubesColor[6];
+                break;
         }
     }
 }
