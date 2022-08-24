@@ -16,14 +16,13 @@ public class GameManager : MonoBehaviour
     float m_MinimumDrag;
     float MoveSensitivity = 20f;
     private bool isfirstimel;
-
     public List<Color> m_CubesColor = new List<Color>();
     private void Awake()
     {
         //localTargetPosition = transform.position;
         instance = this;
     }
-    void Update()
+    void Update()   
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,7 +36,7 @@ public class GameManager : MonoBehaviour
             var po = Input.mousePosition.x - m_PreviousPosition.x;
             var canpos = cube.transform.localPosition;
             var df = po / MoveSensitivity;
-            canpos.x = Mathf.Clamp(df, -3, 3.45f);
+            canpos.x = Mathf.Clamp(df, -3, 3.45f); 
             cube.transform.localPosition = canpos;
         }
         else if (Input.GetMouseButtonUp(0))
